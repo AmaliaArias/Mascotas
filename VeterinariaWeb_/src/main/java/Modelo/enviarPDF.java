@@ -19,8 +19,10 @@ public class enviarPDF {
 
 	public static void enviarCertificado(String destinatario, File pdfCertificado) {
 
+		System.out.println("entro");
+		
 		final String remitente = "amaliarosaonatearias10.3@gmail.com";
-		final String claveApp = "2005"; // No uses tu contraseña normal
+		final String claveApp = "lboi wjbt bhma hpxz"; // No uses tu contraseña normal
 
 		Properties props = new Properties();
 		props.put("mail.smtp.host", "smtp.gmail.com");
@@ -39,6 +41,7 @@ public class enviarPDF {
 			mensaje.setFrom(new InternetAddress(remitente));
 			mensaje.addRecipient(Message.RecipientType.TO, new InternetAddress(destinatario));
 			mensaje.setSubject("Tu certificado PDF");
+			mensaje.setText("nose");
 
 			// Parte del texto
 			MimeBodyPart cuerpoTexto = new MimeBodyPart();
@@ -53,8 +56,8 @@ public class enviarPDF {
 			multipart.addBodyPart(cuerpoTexto);
 			multipart.addBodyPart(adjunto);
 
-			mensaje.setContent(multipart);
-
+			
+			System.out.println("entro");
 			Transport.send(mensaje);
 			System.out.println("Correo enviado con éxito.");
 		} catch (Exception e) {
